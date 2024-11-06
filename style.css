@@ -1,0 +1,161 @@
+body{
+  overflow-x: hidden;
+ 
+}
+@keyframes appear {
+from{
+    opacity: 0;
+    scale: 0;
+   
+
+}
+to{
+    opacity: 1;
+    scale: 1;
+  
+}
+}
+.card {
+position: relative;
+height: 400px;
+width: 100%;
+margin: 10px 0;
+perspective: 1200px;
+transition: ease all 2.3s;
+overflow: hidden;
+}
+
+.card-inner {
+position: relative;
+height: 100%;
+width: 100%;
+transition: transform 1.2s ease;
+transform-style: preserve-3d;
+}
+
+/* Flip the inner content on hover */
+.card:hover .card-inner {
+transform: rotateY(180deg);
+}
+
+.card-front{
+position: absolute;
+height: 100%;
+width: 100%;
+backface-visibility: hidden;
+transition: opacity 0.5s ease;
+}
+.card-back {
+backface-visibility: visible;
+}
+
+/* Front of the card (image and title) */
+.card-front {
+background-color: black;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.card-front .card-img-top {
+height: 100%;
+width: 100%;
+object-fit: cover;
+}
+
+.card-front h5 {
+position: absolute;
+bottom: 10px;
+left: 10px;
+color: white;
+font-weight: 600;
+font-size: 1.8em;
+z-index: 2;
+background: rgba(0, 0, 0, 0.8);
+padding: 5px 10px;
+margin: 0;
+width: calc(100% - 20px);
+text-align: center;
+}
+
+
+
+
+/* Back of the card (details) */
+.card-back {
+background-color: #232323;
+color: white;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+transform: rotateY(180deg);
+padding: 20px;
+opacity: 0;
+visibility: visible; /* Initially not visible */
+transition: opacity 0.5s ease, visibility 0s 0.5s; /* Ensures visibility change happens after opacity */
+}
+
+.card:hover .card-back {
+opacity: 1;
+visibility: visible; /* Back becomes visible on hover */
+}
+
+.card-back .card-text {
+font-weight: 200;
+margin: 10px 0;
+font-size: 1.1em;
+color: white;
+}
+.card:hover h5{
+visibility: hidden;
+}
+a.btn {
+transition: ease cubic-bezier(00.5s) 0.5s;
+background: transparent;
+border: 1px solid white;
+font-weight: 200;
+font-size: 1.1em;
+color: white;
+padding: 10px 20px;
+outline: none;
+text-decoration: none;
+margin-top: 10px;
+}
+
+a.btn:hover {
+background-color: white;
+color: black;
+}
+
+/* Optional styling for the card
+.card {
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+border-radius: 8px;
+} */
+
+
+
+/* .card{
+animation: appear  linear; 
+ animation-timeline: view(100);
+/* animation-range: entry 70% cover 40%; */
+ 
+ 
+/* .card-img-top{
+ 
+        width: 383px;
+        height: 350px;
+        border-radius: 5px 5px 0px 0px;
+}
+.card-body{
+  height: 360px;
+}
+.card:hover{
+  transform: scale(1);
+        margin: 15px;
+        box-shadow: 17px 17px 34px aqua;
+        
+} */
+
